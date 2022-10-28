@@ -30,7 +30,6 @@ echo '{"message": "description must be specified"}';
 return;
 }
 
-/*
 //validamos que exista el parámetro
 if(!key_exists('created_date',$userData)){
 http_response_code(400);
@@ -44,7 +43,6 @@ http_response_code(400);
 echo '{"message": "current_date must be specified"}';
 return;
 }
-*/
 
 //partimos la ruta para extraer recurso + id de la tarea que se quiere acceder
 $uriParts = explode('/',substr($uri,1));
