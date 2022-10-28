@@ -62,23 +62,24 @@ function updateTask($conn, $userData, $id){
     ':title' => $userData['title'],
     ':category' => $userData['category'],
     ':description' => $userData['description'],
-    ':created_date' => $userData['created_date'],
-    ':current_date' => $userData['current_date'],
+    //':created_date' => $userData['created_date'],
+    //':current_date' => $userData['current_date'],
     ':id' => $id
   ];
   
-  $updateSQL = "UPDATE usuarios SET title=:title, category=:category, description=:description, created_date=:created_date, current_date=:current_date WHERE id=:id";
+  //$updateSQL = "UPDATE usuarios SET title=:title, category=:category, description=:description, created_date=:created_date, current_date=:current_date WHERE id=:id";
+  $updateSQL = "UPDATE usuarios SET title=:title, category=:category, description=:description WHERE id=:id";
   //le decimos a PDO que prepare la consulta de $insertSQL para su uso posterior
   $query = $conn->prepare($updateSQL);
   
-  try{
+  //try{
     // Vincula y executa
     if($query->execute($updateTask)) {
         return $id;
     }
-  }catch(Exception $e){
+  //}catch(Exception $e){
     return null;
-  }
+  //}
 }
 
 function deleteTask($conn, $id){
